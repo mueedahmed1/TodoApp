@@ -1,6 +1,6 @@
 //let arr = [];
 
-function add() {
+function add(): void {
     let data;
     let data2 = document.getElementById("one");
     data = (<HTMLInputElement>document.getElementById('one')).value;
@@ -10,18 +10,26 @@ function add() {
     data2.focus();
     console.log(data);
 
-    let addtodo = "<li>" + "<br />"  + data +  " " +
-    "<button type='button' onclick='del(this)'><span class='glyphicon glyphicon-trash'><span></button>" +
-     "</li>" 
-                  
+    let addtodo = "<li>" + "<br />" + data + " " +
+        "<button type='button' onclick='del(this)'><span class='glyphicon glyphicon-trash'><span></button>" +
+        "</li>"
 
+    // id ='(Math.random()) * 10'
     document.getElementById("three").innerHTML += addtodo;
 }
 
-function del(z){
-let chk = z.parentNode.parentNode;
- chk.removeChild(chk.childNodes[0]);
-console.log(chk);
+let num = 0;
+
+function del(z) {
+
+    let chk = z.parentNode;
+
+    chk.setAttribute("id", ++num);
+    console.log(chk);
+    // let test = z.parentNode.attributes[0].value;
+    document.getElementById("three").removeChild(chk);
+
+
 }
 
 
